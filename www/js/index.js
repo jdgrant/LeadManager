@@ -82,7 +82,8 @@ var app = {
 
 function parseURL(sURL) {
 	
-	var aResults = sURL.split("/"); 
+	var aResults = sURL.split("/");
+	
 	alert(aResults[4]);	
 	
 }
