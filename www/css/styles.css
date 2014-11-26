@@ -1,0 +1,86 @@
+/* Imports the Quicksand font */
+@import url("quicksand.css");
+
+/* General Styles */
+html,body {width:1024px; height:768px;}
+body {background:#d9faff; margin:0; padding:0; -webkit-user-select: none;}
+a, canvas, button, input, span, div {-webkit-tap-highlight-color:rgba(0, 0, 0, 0); text-decoration: none;}
+body, input, td, button {font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;}
+
+.left {float:left;}
+.bg {position:absolute; z-index: -9;}
+
+/* Header */
+h1 {
+	font-family: 'quicksand', Arial, sans-serif;
+	margin-top:25px;
+	font-size:25px;
+	text-align:center;
+	color:#FFF;
+	height: 144px;
+	
+}
+
+/* Sign-up Form */
+.label	{
+	width:150px;
+	height: 45px;
+	font-size: 20px;
+	font-family: 'quicksand', Arial, sans-serif;
+	color: #fff;
+	line-height: 45px;
+	clear:both;
+	display:table;
+}
+input {
+	width:200px;
+	height:35px;
+	font-size:20px;
+	font-family: 'quicksand', Arial, sans-serif;
+	line-height: 45px;
+	border: none;
+	margin:0;
+	padding: 0 0 0 20px;
+	-webkit-appearance:none;
+}
+
+/* Buttons */
+button {
+	width:300px;
+	height:80px;
+	padding:5px;
+	font-family: 'quicksand', Arial, sans-serif;
+	font-size:32px;
+	color:#FFF;
+	border: none;
+	border-radius: 15px;
+	text-shadow:#000 0px 1px 0px;
+	float: left;
+}
+.buttons {
+	float: left;
+	clear: left;
+	width: 651px;
+	margin: 200px 0 0 187px;
+}
+.startover {
+	background: #bf4748;
+	margin: 0 50px 0 0;
+}
+.next {
+	background: #37b971;
+}
+.doitagain {
+	background: #37b971;
+	border-radius: 15px;
+	width: 600px;
+	height: 115px;
+	margin: 200px 0 0 212px;
+	line-height:115px;
+}
+h2 {
+	font-family: 'quicksand', Arial, sans-serif;
+	font-size:32px;
+	color:#FFF;
+	text-align: center;
+}

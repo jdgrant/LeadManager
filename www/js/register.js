@@ -83,6 +83,8 @@ var app = {
 function parseURL(sURL) {
 	
 	var aResults = sURL.split("/"); 
-	alert(aResults[4]);	
-	
+	document.getElementById('badgeID').value = aResults[4];
+	document.getElementById('lastname').value = aResults[5];
+	document.getElementById('firstname').value = aResults[6];
+	document.getElementById('company').value = aResults[7];	
 }
