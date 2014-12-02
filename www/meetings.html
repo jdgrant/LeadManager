@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="scripts/common.js"></script>
+<link href="css/styles.css" rel="stylesheet" type="text/css">
+<link href="scripts/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="scripts/jquery.dynatable.css" rel="stylesheet" type="text/css">
+
+<!--necessary if accessing Kiosk Pro's JavaScript API by Import (recommended).-->
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/jquery.dynatable.js"></script>
+
+</head>
+
+<body style="margin:0px;padding:0px;background-color:#043871;">
+
+<div style="width:1024px;height:768px;background-image:url('Kiosk-Background.png');margin:0px;padding:0px;">
+
+
+
+<div style="width:900px;float:left;padding-top:250px;padding-right:50px;padding-left:15px;border:solid 0px #FFF;" align="Center">
+
+<style>
+.table td {
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #999;
+	background-color:#DADADA;
+	color:#000;
+
+}
+
+</style>
+
+<table id="my-final-table" class="table table-bordered" style="color:#fff;width:100%">
+  <thead>
+    <tr style="background-color:#71AF5A;"><th data-dynatable-column="band" class="dynatable-head"><a class="dynatable-sort-header" href="#">Band</a></th>
+    <th data-dynatable-column="song" class="dynatable-head"><a class="dynatable-sort-header" href="#">Song</a></th>
+  </tr></thead>
+  <tbody>
+  
+  </tbody>
+</table>
+
+
+</div>
+</div>
+
+<div id="json-records" style="display:none;">
+[
+  {
+    "band": "Weezer",
+    "song": "El Scorcho"
+  },
+  {
+    "band": "Chevelle",
+    "song": "Family System"
+  }
+]
+</div>
+
+<script type="text/javascript" src="cordova.js"></script>
+       
+        
+<script type="text/javascript">
+
+$(document).ready(function () {
+  var records = $('#json-records'),
+    myRecords = JSON.parse(records.text());
+	$('#my-final-table').dynatable({
+	  features: {
+		paginate: true,
+		recordCount: true,
+		sorting: false
+	  },
+  dataset: {
+		records: myRecords
+	  }
+	});
+
+
+  $(document).ready(function() {
+
+   
+
+});
+
+ $('#my-final-table tr').click(function() {
+            var id = $(this).children("td:eq(0)").text();
+            var name = $(this).children("td:eq(1)").text();
+            
+            alert("ID: "+id+", Name: "+name);
+  
+    });
+
+
+});
+
+        
+</script>
+
+</body>
+</html>
