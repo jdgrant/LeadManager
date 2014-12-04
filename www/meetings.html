@@ -10,7 +10,9 @@
 
 <!--necessary if accessing Kiosk Pro's JavaScript API by Import (recommended).-->
 <script type="text/javascript" src="scripts/jquery.js"></script>
-<script type="text/javascript" src="scripts/jquery.dynatable.js"></script>
+<!---script type="text/javascript" src="scripts/jquery.dynatable.js"></script--->
+<script type="text/javascript" src="scripts/jquery.dataTables.min.js"></script>
+<link href="scripts/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -38,8 +40,14 @@
 
 <table id="my-final-table" class="table table-bordered" style="color:#fff;width:100%">
   <thead>
-    <tr style="background-color:#71AF5A;"><th data-dynatable-column="band" class="dynatable-head"><a class="dynatable-sort-header" href="#">Band</a></th>
-    <th data-dynatable-column="song" class="dynatable-head"><a class="dynatable-sort-header" href="#">Song</a></th>
+    <tr style="background-color:#71AF5A;">
+    <th>Name</th>
+    <th >Title</th>
+    <th>Company</th>
+    <th style="display:none;">ID</th>
+    <th>Date</th>
+    <th >Amount</th>
+    
   </tr></thead>
   <tbody>
   
@@ -47,61 +55,55 @@
 </table>
 
 
+            
+            
 </div>
 </div>
 
-<div id="json-records" style="display:none;">
-[
-  {
-    "band": "Weezer",
-    "song": "El Scorcho"
-  },
-  {
-    "band": "Chevelle",
-    "song": "Family System"
-  }
-]
-</div>
+
 
 <script type="text/javascript" src="cordova.js"></script>
        
-        
+    
 <script type="text/javascript">
-
-$(document).ready(function () {
-  var records = $('#json-records'),
-    myRecords = JSON.parse(records.text());
-	$('#my-final-table').dynatable({
-	  features: {
-		paginate: true,
-		recordCount: true,
-		sorting: false
-	  },
-  dataset: {
-		records: myRecords
-	  }
-	});
-
-
-  $(document).ready(function() {
-
-   
-
-});
-
- $('#my-final-table tr').click(function() {
-            var id = $(this).children("td:eq(0)").text();
-            var name = $(this).children("td:eq(1)").text();
-            
-            alert("ID: "+id+", Name: "+name);
-  
-    });
-
-
-});
-
         
-</script>
+$(document).ready(function() {
+    $('#my-final-table').dataTable( {
+        "ajax": {
+            "url": "ajax/meetings.json",
+            "dataType": "json"
+        }
+    } );
+	
+	
+	var table = $('#my-final-table').DataTable();
+ 
+	table.on( 'draw', function () {
+		monitorClick() ;
+	} );
+	
+	
+} );
+
+function monitorClick() {
+		
+		 $('#my-final-table td:nth-child(4)').hide();
+		
+		
+		$('#my-final-table tr').click(function() {
+           
+		   
+		    var id = $(this).children("td:eq(3)").text();
+           
+            
+            alert("ID: "+id);
+  
+    		});
+			
+		}        
+        
+</script>        
+    
 
 </body>
 </html>
