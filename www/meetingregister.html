@@ -16,21 +16,9 @@
 <![endif]-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
-<script src="signature/jquery.signature.js"></script>
-<script>
-$(function() {
-	$('#sig').signature();
-	$('#clear').click(function() {
-		$('#sig').signature('clear');
-	});
-	$('#json').click(function() {
-		alert($('#sig').signature('toJSON'));
-	});
-	$('#svg').click(function() {
-		alert($('#sig').signature('toSVG'));
-	});
-});
-</script>
+
+    
+    
 <!--necessary if accessing Kiosk Pro's JavaScript API by Import (recommended).-->
 <script type="text/javascript" src="scripts/kiosk_functions.js"></script>
 
@@ -85,8 +73,27 @@ $(function() {
 <option value="pickup" selected="selected">Pickup</option>
 <option value="mail">Mail</option>
 </select>
-<br /><label class="label left">Signature</label><div style="width:100%;" align="left"><a class="left" id="clear" style="color:white"><Br />Clear</a></div> <br />
-<div id="sig"></div>
+
+<label class="label left">Signature</label>
+<!-- you load jquery somewhere above here ... -->
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="libs/flashcanvas.js"></script>
+	<![endif]-->
+	<script src="signature/jSignature.min.js"></script>
+	<div id="signature" style="background-color:#FFFFFF;margin-top:150px;"></div>
+    <a href="#" id="clear">Clear</a>
+	<script>
+	
+	    $(document).ready(function() {
+		var $sigdiv = $("#signature")
+	       	$sigdiv.jSignature() // inits the jSignature widget.
+			// after some doodling...
+			
+			$('#clear').click(function() {
+				$sigdiv.jSignature("reset") 
+			});
+	    })
+	</script>
 <Br />
 <br />
 <Br />
