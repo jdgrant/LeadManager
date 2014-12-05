@@ -43,11 +43,11 @@
     <tr style="background-color:#71AF5A;">
      <th style="display:none;">ID</th>
     <th>Name</th>
-    <th >Title</th>
-    <th>Company</th>
+    <th >Company</th>
+    <th style="display:none;">Email</th>
    
     <th>Date</th>
-    <th >Amount</th>
+    <th >Account Rep</th>
     
   </tr></thead>
   <tbody>
@@ -89,15 +89,16 @@ $(document).ready(function() {
 function monitorClick() {
 		
 		 $('#my-final-table td:nth-child(1)').hide();
-		
+		$('#my-final-table td:nth-child(4)').hide();
 		
 		$('#my-final-table tr').click(function() {
            
 		   
 		    var id = $(this).children("td:eq(0)").text();
            
+		   	window.location.href = 'meetingregister.html?id='+id;
             
-            alert("ID: "+id);
+            //alert("ID: "+id);
   
     		});
 			
