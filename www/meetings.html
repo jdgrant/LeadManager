@@ -41,10 +41,11 @@
 <table id="my-final-table" class="table table-bordered" style="color:#fff;width:100%">
   <thead>
     <tr style="background-color:#71AF5A;">
+     <th style="display:none;">ID</th>
     <th>Name</th>
     <th >Title</th>
     <th>Company</th>
-    <th style="display:none;">ID</th>
+   
     <th>Date</th>
     <th >Amount</th>
     
@@ -70,7 +71,7 @@
 $(document).ready(function() {
     $('#my-final-table').dataTable( {
         "ajax": {
-            "url": "ajax/meetings.json",
+            "url": "http://apps.smidirectmarketing.com/kioskregister/NADAMeeting.aspx", //"ajax/meetings.json",//
             "dataType": "json"
         }
     } );
@@ -87,13 +88,13 @@ $(document).ready(function() {
 
 function monitorClick() {
 		
-		 $('#my-final-table td:nth-child(4)').hide();
+		 $('#my-final-table td:nth-child(1)').hide();
 		
 		
 		$('#my-final-table tr').click(function() {
            
 		   
-		    var id = $(this).children("td:eq(3)").text();
+		    var id = $(this).children("td:eq(0)").text();
            
             
             alert("ID: "+id);
