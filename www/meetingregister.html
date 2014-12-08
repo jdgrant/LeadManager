@@ -30,7 +30,7 @@
 
 
 <div style="float:left;padding-top:215px;padding-right:50px;padding-left:15px;">
-<div style="height:50px;color:red;" id="error" name="error"></div>
+
 <label class="label left"></label>
 <input type="button" value="Scan" onClick="parseURL('HTTPS://L4E.US/589/1001/ATTENDEE-1001/DEMO-1001/DEMOCOMPANY')" class="left"  style="width:25px;height:25px;" />
 
@@ -50,8 +50,7 @@
 <label class="label left">Email</label>
 <input class="left" type="email" value="" id="email"  name="email" autocapitalize="words" autocomplete="off" autocorrect="off">
 
-<label class="label left">Dealer Code</label>
-<input class="left" type="number" value="" id="dealercode" name="dealercode" autocapitalize="words" autocomplete="off" autocorrect="off">
+<input class="left" type="hidden" value="" id="dealercode" name="dealercode" autocapitalize="words" autocomplete="off" autocorrect="off">
 
 <label class="label left">Phone</label>
 <input class="left" type="tel" value=""  id="phone" name="phone" autocapitalize="words" autocomplete="off" autocorrect="off">
@@ -101,7 +100,7 @@
 <br />
 <Br />
 	<a href="#" onClick="saveCSV();"><img src="Kiosk-RegisterButton.png" /></a><br />
-
+<div style="height:50px;color:red;" id="error" name="error"></div>
 </div>
 
 <br />
@@ -122,10 +121,17 @@
 		$(document).ready(function() {
 			
 			var sURL = "http://apps.smidirectmarketing.com/kioskregister/NADAMeetingDetails.aspx?ActivityID="+getUrlParameter('id');
-			alert(sURL);
+			//alert(sURL);
 			$.getJSON( sURL, function( data ) {
-				//$( "#firstname" ).val(data.FirstName);
-				alert(data.FirstName);
+				$( "#firstname" ).val(data.FirstName);
+				$( "#lastname" ).val(data.LastName);
+				$( "#company" ).val(data.Company);
+				$( "#email" ).val(data.Email);
+				$( "#phone" ).val(data.Phone);
+				$( "#SalesRep" ).val(data.SalesRep);
+				
+				
+				//alert(data.FirstName);
 				
 			});
 
