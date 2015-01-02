@@ -47,10 +47,10 @@ var CompCalendar = function() {
 								right: 'today month,agendaWeek,agendaDay prev,next'
 							},
 							firstDay: 1,
-							defaultView: 'basicDay',
+							defaultView: 'agendaDay',
 							editable: false,
 							droppable: false,
-							events: "ajax/calendar.json"
+							events: "http://apps.smidirectmarketing.com/kioskregister/NADAMeetingCalendar.aspx"
 						});
 						
 			
