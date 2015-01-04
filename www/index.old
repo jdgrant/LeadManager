@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body style="margin:0px;padding:0px;background-color:#043871;">
+
+<div style="width:1024px;height:768px;background-image:url('Kiosk-Background.png');margin:0px;padding:0px;">
+
+<div style="float:left;padding-top:215px;padding-right:50px;padding-left:15px;"><a href="index.html"><img src="Kiosk-TBBH.png"  width="375"  /></a></div>
+<div style="float:right;padding-top:215px;padding-right:50px;padding-left:15px;" align="Center">
+<img src="Kiosk-ipad.png" />
+<br /><br />
+<a href="register.html" style="color:white"><img src="Kiosk-RegisterButton.png" /></a>
+<a href="meetingslookup.html" style="color:white">Meetings</a>
+
+</div>
+
+
+<div style="clear:both">
+<div style="position:absolute;bottom:-50px;left:50px;"><a href="kiosk-presentation.html" style="color:white"><img src="Kiosk-Transparent.png"/>.</a>
+</div>
+
+</body>
+</html>
