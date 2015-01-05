@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>AppUI - Web App Bootstrap Admin Template</title>
+
+        <meta name="description" content="AppUI is a Web App Bootstrap Admin Template created by pixelcave and published on Themeforest">
+        <meta name="author" content="pixelcave">
+        <meta name="robots" content="noindex, nofollow">
+
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+        <!-- Icons -->
+        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+        <link rel="shortcut icon" href="img/favicon.png">
+        <link rel="apple-touch-icon" href="img/icon57.png" sizes="57x57">
+        <link rel="apple-touch-icon" href="img/icon72.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="img/icon76.png" sizes="76x76">
+        <link rel="apple-touch-icon" href="img/icon114.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="img/icon120.png" sizes="120x120">
+        <link rel="apple-touch-icon" href="img/icon144.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="img/icon152.png" sizes="152x152">
+        <link rel="apple-touch-icon" href="img/icon180.png" sizes="180x180">
+        <!-- END Icons -->
+
+        <!-- Stylesheets -->
+        <!-- Bootstrap is included in its original form, unaltered -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+		<link href="scripts/jquery.dynatable.css" rel="stylesheet" type="text/css">
+
+        <!-- Related styles of various icon packs and plugins -->
+        <link rel="stylesheet" href="css/plugins.css">
+ 
+        <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+
+        <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+        <link rel="stylesheet" href="css/themes.css">
+        <!-- END Stylesheets -->
+  
+  <!-- Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL) -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>!window.jQuery && document.write(decodeURI('%3Cscript src="js/vendor/jquery-2.1.1.min.js"%3E%3C/script%3E'));</script>
+        
+        <!-- Modernizr (browser feature detection library) -->
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!-- Page Wrapper -->
+        <!-- In the PHP version you can set the following options from inc/config file -->
+        <!--
+            Available classes:
+
+            'page-loading'      enables page preloader
+        -->
+        <div id="page-wrapper" class="page-loading">
+            <!-- Preloader -->
+            <!-- Preloader functionality (initialized in js/app.js) - pageLoading() -->
+            <!-- Used only if page preloader enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version) -->
+            <div class="preloader">
+                <div class="inner">
+                    <!-- Animation spinner for all modern browsers -->
+                    <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
+
+                    <!-- Text for IE9 -->
+                    <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
+                </div>
+            </div>
+            <!-- END Preloader -->
+
+            <!-- Page Container -->
+            <!-- In the PHP version you can set the following options from inc/config file -->
+            <!--
+                Available #page-container classes:
+
+                'sidebar-light'                                 for a light main sidebar (You can add it along with any other class)
+
+                'sidebar-visible-lg-mini'                       main sidebar condensed - Mini Navigation (> 991px)
+                'sidebar-visible-lg-full'                       main sidebar full - Full Navigation (> 991px)
+
+                'sidebar-alt-visible-lg'                        alternative sidebar visible by default (> 991px) (You can add it along with any other class)
+
+                'header-fixed-top'                              has to be added only if the class 'navbar-fixed-top' was added on header.navbar
+                'header-fixed-bottom'                           has to be added only if the class 'navbar-fixed-bottom' was added on header.navbar
+
+                'fixed-width'                                   for a fixed width layout (can only be used with a static header/main sidebar layout)
+
+                'enable-cookies'                                enables cookies for remembering active color theme when changed from the sidebar links (You can add it along with any other class)
+            -->
+            <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+                <!-- Alternative Sidebar -->
+           <div id="sidebar">
+                    <!-- Sidebar Brand -->
+                    <div id="sidebar-brand" class="themed-background">
+                        <a href="index.html" class="sidebar-title">
+                            <i class="fa fa-cube"></i> <span class="sidebar-nav-mini-hide">App<strong>UI</strong></span>
+                        </a>
+                    </div>
+                    <!-- END Sidebar Brand -->
+
+                    <!-- Wrapper for scrolling functionality -->
+                    <div id="sidebar-scroll">
+                        <!-- Sidebar Content -->
+                        <div id="leftNav" class="sidebar-content">
+                            
+                            
+                        </div>
+                        <!-- END Sidebar Content -->
+                    </div>
+                    <!-- END Wrapper for scrolling functionality -->
+
+                    
+                </div>
+                <!-- END Main Sidebar -->
+
+                <!-- Main Container -->
+                <div id="main-container">
+                    
+                    
+                    <header class="navbar navbar-inverse navbar-fixed-top">
+                        <!-- Left Header Navigation -->
+                        <ul class="nav navbar-nav-custom">
+                            <!-- Main Sidebar Toggle Button -->
+                            <li>
+                                <a href="javascript:void(0)" onClick="App.sidebar('toggle-sidebar');">
+                                    <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+                                    <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+                                </a>
+                            </li>
+                            <!-- END Main Sidebar Toggle Button -->
+
+                            <!-- Header Link -->
+                            <li class="hidden-xs animation-fadeInQuick">
+                                <a href=""><strong>UI ELEMENTS</strong></a>
+                            </li>
+                            <!-- END Header Link -->
+                        </ul>
+                        <!-- END Left Header Navigation -->
+
+                        <!-- Right Header Navigation -->
+                        <ul class="nav navbar-nav-custom pull-right">
+                            <!-- Search Form -->
+                            <li>
+                                <form action="page_ready_search_results.html" method="post" class="navbar-form-custom" role="search">
+                                    <input type="text" id="top-search" name="top-search" class="form-control" placeholder="Search..">
+                                </form>
+                            </li>
+                            <!-- END Search Form -->
+
+                            <!-- Alternative Sidebar Toggle Button -->
+                            <li>
+                                <a href="javascript:void(0)" onClick="App.sidebar('toggle-sidebar-alt');">
+                                    <i class="gi gi-settings"></i>
+                                </a>
+                            </li>
+                            <!-- END Alternative Sidebar Toggle Button -->
+
+                            <!-- User Dropdown -->
+                            <li id="dropdown" class="dropdown">
+                               
+                            </li>
+                            <!-- END User Dropdown -->
+                        </ul>
+                        <!-- END Right Header Navigation -->
+                    </header>
+                    <!-- END Header -->
+
+                    <!-- Page content -->
+                    <div id="page-content">
+                        <!-- Table Styles Header -->
+                        <div class="content-header">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="header-section">
+                                        <h1>Registration</h1>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 hidden-xs">
+                                    <div class="header-section">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Table Styles Header -->
+
+					 <div class="block full">
+
+<!-- Form Components Row -->
+                        <div class="row">
+                            <div class="col-md-6">
+                            
+                            
+ <!-- General Elements Block -->
+                                <div class="block">
+                                    <!-- General Elements Title -->
+                                    <div class="block-title">
+                                        <div class="block-options pull-right">
+                                            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default toggle-bordered enable-tooltip" data-toggle="button" title="Toggles .form-bordered class"></a>
+                                        </div>
+                                        <h2>Information</h2>
+                                    </div>
+                                    <!-- END General Elements Title -->
+
+                                    <!-- General Elements Content -->
+                                    <form action="page_forms_components.html" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label"></label>
+                                            <div class="col-md-9">
+                                                <p class="form-control-static"><a href="#" onClick="parseURL('HTTPS://L4E.US/589/1001/ATTENDEE-1001/DEMO-1001/DEMOCOMPANY')">Scan</a></p>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Badge</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="badgeID" name="badgeID" class="form-control" placeholder="Badge ID">
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">First Name</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="firstname" name="firstname" class="form-control" placeholder="First Name">
+                                               
+                                            </div>
+                                        </div>
+                                         <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Last Name</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Last Name">
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Company</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="company" name="company" class="form-control" placeholder="Company">
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Email</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Dealer Code or BAC</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="dealercode" name="dealercode" class="form-control" placeholder="DealerCode or BAC">
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Phone</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone">
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">SalesRep</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="SalesRep" name="SalesRep" class="form-control" placeholder="SalesRep">
+                                               
+                                            </div>
+                                        </div>
+                                        
+                                    <!-- END General Elements Content -->
+                                </div>
+                                <!-- END General Elements Block -->
+
+							</div>
+                            <div class="col-md-6">
+
+								 <div class="block">
+                                    <!-- General Elements Title -->
+                                    <div class="block-title">
+                                        <div class="block-options pull-right">
+                                            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default toggle-bordered enable-tooltip" data-toggle="button" title="Toggles .form-bordered class">Borderless</a>
+                                        </div>
+                                        <h2>Meeting and Gift</h2>
+                                    </div>
+                                    <!-- END General Elements Title -->
+										
+                                       <!-- you load jquery somewhere above here ... -->
+                                        <!--[if lt IE 9]>
+                                        <script type="text/javascript" src="libs/flashcanvas.js"></script>
+                                        <![endif]-->
+                                        <script src="signature/jSignature.min.js"></script>
+                                        <div id="signature" style="background-color:#FFFFFF;margin-top:150px;"></div>
+                                        <a href="#" id="clear">Clear</a>
+                                        <script>
+                                        
+                                            $(document).ready(function() {
+                                            var $sigdiv = $("#signature")
+                                                $sigdiv.jSignature() // inits the jSignature widget.
+                                                // after some doodling...
+                                                
+                                                $('#clear').click(function() {
+                                                    $sigdiv.jSignature("reset") 
+                                                });
+                                            })
+                                        </script> 
+
+								</div>
+
+							</div>
+                            </div>
+
+
+<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="barcodescanner.js"></script>
+        <script type="text/javascript" src="js/register.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+
+	<script type="text/javascript">
+		
+		$(document).ready(function() {
+			
+			var sURL = "http://apps.smidirectmarketing.com/kioskregister/NADAMeetingDetails.aspx?ActivityID="+getUrlParameter('id');
+			//alert(sURL);
+			$.getJSON( sURL, function( data ) {
+				$( "#firstname" ).val(data.FirstName);
+				$( "#lastname" ).val(data.LastName);
+				$( "#company" ).val(data.Company);
+				$( "#email" ).val(data.Email);
+				$( "#phone" ).val(data.Phone);
+				$( "#SalesRep" ).val(data.SalesRep);
+				
+				
+				//alert(data.FirstName);
+				
+			});
+
+		} );
+		
+		
+		function getUrlParameter(sParam)
+		{
+			var sPageURL = window.location.search.substring(1);
+			var sURLVariables = sPageURL.split('&');
+			for (var i = 0; i < sURLVariables.length; i++) 
+			{
+				var sParameterName = sURLVariables[i].split('=');
+				if (sParameterName[0] == sParam) 
+				{
+					return sParameterName[1];
+				}
+			}
+		}
+	</script>
+       
+           
+
+                       
+                    </div>
+                    <!-- END Page Content -->
+                </div>
+                <!-- END Main Container -->
+            </div>
+            <!-- END Page Container -->
+        </div>
+        <!-- END Page Wrapper -->
+
+      
+
+
+		<script type="text/javascript" src="scripts/jquery.dataTables.min.js"></script>
+        <link href="scripts/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Bootstrap.js, Jquery plugins and Custom JS code -->
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/app.js"></script>
+
+        <!-- Load and execute javascript code used only in this page -->
+      
+
+        <!-- Load and execute javascript code used only in this page -->
+        <script>
+		
+			$().ready(function() {
+				$("#leftNav").load( "_leftNav.html", function() {
+				 //alert( "Left was performed." );
+				});
+			});
+			$().ready(function() {
+				$("#dropdown").load( "_dropdown.html", function() {
+				 //alert( "Dropdown was performed." );
+				});
+			});
+		
+			
+		</script>
+        
+
+    </body>
+</html>
