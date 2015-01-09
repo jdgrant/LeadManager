@@ -168,9 +168,9 @@
                                         <h1>Registration</h1>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 hidden-xs">
+                                <div class="col-sm-6 hidden-xs" align="right">
                                     <div class="header-section">
-                                        
+                                        <button type="button" id="saveMeeting" class="btn btn-effect-ripple btn-success" style="overflow: hidden; position: relative;">Save Meeting</button>
                                     </div>
                                 </div>
                             </div>
@@ -279,6 +279,68 @@
                                     </div>
                                     <!-- END General Elements Title -->
 										
+                                        
+                                        
+                                        
+                                     <div class="form-group">
+                                            <label class="col-md-3 control-label">Gift</label>
+                                            <div class="col-md-9">
+                                                <div class="radio">
+                                                    <label for="example-radio1">
+                                                        <input type="radio" id="pickup-radio" name="getgift" value="pickup" checked> Pickup
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label for="example-radio2">
+                                                        <input type="radio" id="deliver-radio" name="getgift" value="deliver"> Deliver
+                                                    </label>
+                                                </div>
+                                              
+                                            </div>
+                                        
+                                        </div>
+                                        
+                                        <div id="address-box">
+
+										<div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Delivery Address</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="DeliveryAddress" name="DeliveryAddress" class="form-control" placeholder="Delivery Address">
+                                               
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Delivery City</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="DeliveryCity" name="DeliveryCity" class="form-control" placeholder="Delivery City">
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Delivery State</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="DeliveryState" name="DeliveryState" class="form-control" placeholder="DeliveryState">
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Delivery Zip</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="DeliveryZip" name="DeliveryZip" class="form-control" placeholder="DeliveryZip">
+                                               
+                                          </div>
+                                        
+                                        
+                                        </div>
+                                        
+                                        </div>
+                                        
+                                        <div id="signature-box">
+                                        
+                                          <div class="form-group">
+                                            <label class="col-md-3 control-label">Signature</label>
+                                        
                                        <!-- you load jquery somewhere above here ... -->
                                         <!--[if lt IE 9]>
                                         <script type="text/javascript" src="libs/flashcanvas.js"></script>
@@ -298,8 +360,23 @@
                                                 });
                                             })
                                         </script> 
+                                        
+                                        </div>
 
+										</div>
+										
+
+
+
+
+										
 								</div>
+
+
+								
+                         
+								
+								
 
 							</div>
                             </div>
@@ -330,8 +407,41 @@
 				//alert(data.FirstName);
 				
 			});
+			
+			
+			
+			 if($('#pickup-radio').is(':checked')) { showPickup(); }
+			
+			
+		      if($('#deliver-radio').is(':checked')) {  showDelivery(); }
+			
+			
+			$('#pickup-radio').click(function() {
+			   if($('#pickup-radio').is(':checked')) { showPickup(); }
+			});
+			
+			$('#deliver-radio').click(function() {
+			   if($('#deliver-radio').is(':checked')) {  showDelivery(); }
+			});
+			
 
 		} );
+		
+		
+		function showPickup()
+		 {
+           $("#signature-box").show();
+		   $("#address-box").hide();
+		   
+		 }
+		
+		
+		function showDelivery()
+		 {
+           $("#signature-box").hide();
+		   $("#address-box").show();
+		   
+		 }
 		
 		
 		function getUrlParameter(sParam)
