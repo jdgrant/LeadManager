@@ -196,7 +196,7 @@
                                     <!-- END General Elements Title -->
 
                                     <!-- General Elements Content -->
-                                    <form action="page_forms_components.html" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
+                                    <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
                                         <div class="form-group">
                                             <label class="col-md-3 control-label"></label>
                                             <div class="col-md-9">
@@ -264,11 +264,22 @@
                                             </div>
                                         </div>
                                         
+                                        
+										<div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-textarea-input">Notes</label>
+                                            <div class="col-md-9">
+                                                <textarea id="notes" name="notes" rows="7" class="form-control" placeholder="notes.."></textarea>
+                                            </div>
+                                        </div>
+                                        
                                     <!-- END General Elements Content -->
                                 </div>
                                 <!-- END General Elements Block -->
 
 							</div>
+                            </form>
+							 <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return false;">
+                                   
                             <div class="col-md-6">
 
 								 <div class="block">
@@ -280,10 +291,20 @@
                                     <!-- END General Elements Title -->
 										
                                         
+                                         <div class="form-group">
+                                            <label class="col-md-3 control-label">Gift</label>
+                                               <div class="col-md-6">
+                                                    <select id="Gift" name="Gift" class="Gift" size="3">
+                                                        <option value="Apple TV">Apple TV</option>
+                                                        <option value="Kindle Fire">Kindle Fire</option>
+                                                       
+                                                    </select>
+                                                </div>
                                         
+                                        </div>
                                         
                                      <div class="form-group">
-                                            <label class="col-md-3 control-label">Gift</label>
+                                            <label class="col-md-3 control-label">Delivery Method</label>
                                             <div class="col-md-9">
                                                 <div class="radio">
                                                     <label for="example-radio1">
@@ -346,7 +367,7 @@
                                         <script type="text/javascript" src="libs/flashcanvas.js"></script>
                                         <![endif]-->
                                         <script src="signature/jSignature.min.js"></script>
-                                        <div id="signature" style="background-color:#FFFFFF;margin-top:150px;"></div>
+                                        <div id="signature" style="background-color:#FFFFFF;margin-top:50px; border: solid 1px #6699FF;"></div>
                                         <a href="#" id="clear">Clear</a>
                                         <script>
                                         
@@ -365,9 +386,10 @@
 
 										</div>
 										
+                                        
+                                        </form>
 
-
-
+										
 
 										
 								</div>
@@ -402,6 +424,31 @@
 				$( "#email" ).val(data.Email);
 				$( "#phone" ).val(data.Phone);
 				$( "#SalesRep" ).val(data.SalesRep);
+
+				$( "#badgeID" ).val(data.BadgeID);
+				$( "#dealercode" ).val(data.DealerCode);
+				$( "#DeliveryAddress" ).val(data.ShippingAddress);
+				$( "#DeliveryCity" ).val(data.ShippingCity);
+				$( "#DeliveryState" ).val(data.ShippingState);
+				$( "#DeliveryZip" ).val(data.ShippingZip);
+				
+				$( "#notes" ).val(data.Notes);
+				
+				$( "#Gift" ).val(data.Gift);
+				
+				if (data.DeliveryMethod == "pickup") {$('#pickup-radio').prop("checked",true);$('#deliver-radio').prop("checked",false);}
+				if (data.DeliveryMethod == "deliver") {$('#deliver-radio').prop("checked",true);$('#pickup-radio').prop("checked",false);}
+				  
+				
+				//"|^^|sSignature|==|" + $sigdiv.jSignature("getData") 
+				//"|^^|sNotes|==|" + "notes"  + "|^^|sGift|==|" + $("#Gift").val() + ""
+
+				//Delivery Method
+				// Completed
+
+				
+				
+				
 				
 				
 				//alert(data.FirstName);
@@ -424,6 +471,11 @@
 			   if($('#deliver-radio').is(':checked')) {  showDelivery(); }
 			});
 			
+			// 
+			$('#saveMeeting').click(function() {
+			   submitForm();
+			});
+			
 
 		} );
 		
@@ -444,6 +496,33 @@
 		 }
 		
 		
+		function submitForm()
+		 {
+		 
+		 
+		  		var $sigdiv = $("#signature")
+                
+		 //getUrlParameter('ActivityID'
+          	//	  var sJSON = "{sBadgeID: '" + $("#badgeID").val() + "', sFirstName:  '" + $("#firstname").val() + "', sLastName:  '" + $("#lastname").val() + "', sCompany:  '" + $("#company").val() + "', sEmailAddress:  '" + $("#email").val() + "', sDealerCode:  '" + $("#dealercode").val() + "', sPhone:  '" + $("#phone").val() + "', sSalesRep:  '" + $("#SalesRep").val() + "', iActivityID:  '" + getUrlParameter('ActivityID') + "', sSignature:  '" + "signature" + "', sShippingAddress:  '" + $("#DeliveryAddress").val() + "', sShippingCity:  '" + $("#DeliveryCity").val() + "', sShippingState:  '" + $("#DeliveryState").val() + "', sShippingZip:  '" + $("#DeliveryZip").val() + "', sNotes:  '" + '' + "', sGift:  '" + $("#Gift").val() + "' }";
+				  
+				 var sDeliveryMethod = "";
+				 if ($('#pickup-radio').is(':checked'))  {sDeliveryMethod = "pickup";}
+				 if ($('#deliver-radio').is(':checked')) {sDeliveryMethod = "delivery";}
+				  
+				  
+				  
+				    var sJSON = "sBadgeID|==|" + $("#badgeID").val() + "|^^|sFirstName|==|" + $("#firstname").val() + "|^^|sLastName|==|" + $("#lastname").val() + "|^^|sCompany|==|" + $("#company").val() + "|^^|sEmailAddress|==|" + $("#email").val() + "|^^|sDealerCode|==|" + $("#dealercode").val() + "|^^|sPhone|==|" + $("#phone").val() + "|^^|sSalesRep|==|" + $("#SalesRep").val() + "|^^|iActivityID|==|" + getUrlParameter("ActivityID") + "|^^|sSignature|==|" + $sigdiv.jSignature("getData") + "|^^|sShippingAddress|==|" + $("#DeliveryAddress").val() + "|^^|sShippingCity|==|" + $("#DeliveryCity").val() + "|^^|sShippingState|==|" + $("#DeliveryState").val() + "|^^|sShippingZip|==|" + $("#DeliveryZip").val() + "|^^|sNotes|==|" + $("#notes").val()  + "|^^|sGift|==|" + $("#Gift").val()  + "|^^|sDeliveryMethod|==|" + sDeliveryMethod  + "|^^|sCompleted|==|" + "sCompleted" + "";
+				  
+
+				$.post( "http://localhost:25656/NADAMeetingUpdate.aspx",sJSON, function( data ) {
+					alert(data);
+					}
+				);
+				
+		
+		}
+		
+		
 		function getUrlParameter(sParam)
 		{
 			var sPageURL = window.location.search.substring(1);
@@ -457,6 +536,16 @@
 				}
 			}
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	</script>
        
            
