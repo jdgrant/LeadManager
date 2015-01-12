@@ -515,7 +515,7 @@
 				    var sJSON = "sBadgeID|==|" + $("#badgeID").val() + "|^^|sFirstName|==|" + $("#firstname").val() + "|^^|sLastName|==|" + $("#lastname").val() + "|^^|sCompany|==|" + $("#company").val() + "|^^|sEmailAddress|==|" + $("#email").val() + "|^^|sDealerCode|==|" + $("#dealercode").val() + "|^^|sPhone|==|" + $("#phone").val() + "|^^|sSalesRep|==|" + $("#SalesRep").val() + "|^^|iActivityID|==|" + getUrlParameter("ActivityID") + "|^^|sSignature|==|" + $sigdiv.jSignature("getData") + "|^^|sShippingAddress|==|" + $("#DeliveryAddress").val() + "|^^|sShippingCity|==|" + $("#DeliveryCity").val() + "|^^|sShippingState|==|" + $("#DeliveryState").val() + "|^^|sShippingZip|==|" + $("#DeliveryZip").val() + "|^^|sNotes|==|" + $("#notes").val()  + "|^^|sGift|==|" + $("#Gift").val()  + "|^^|sDeliveryMethod|==|" + sDeliveryMethod  + "|^^|sCompleted|==|" + "sCompleted" + "";
 				  
 
-				$.post( "http://localhost:25656/NADAMeetingUpdate.aspx",sJSON, function( data ) {
+				$.post( "http://apps.smidirectmarketing.com/kioskregister/NADAMeetingUpdate.aspx",sJSON, function( data ) {
 					alert(data);
 					}
 				);
