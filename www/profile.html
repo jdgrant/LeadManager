@@ -499,7 +499,8 @@
 		function submitForm()
 		 {
 		 
-		 
+		 alert("inside");
+		 try {
 		  		var $sigdiv = $("#signature")
                 
 		 //getUrlParameter('ActivityID'
@@ -519,7 +520,10 @@
 					}
 				);
 				
-		
+				}
+		catch(err) {
+			alert(err.message);
+		}
 		}
 		
 		
