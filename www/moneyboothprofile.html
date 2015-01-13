@@ -138,7 +138,7 @@
 
                             <!-- Header Link -->
                             <li class="hidden-xs animation-fadeInQuick">
-                                <a href=""><strong>REGISTRATION</strong></a>
+                                <a href=""><strong>MONEY BOOTH</strong></a>
                             </li>
                             <!-- END Header Link -->
                         </ul>
@@ -165,7 +165,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="header-section">
-                                        <h1>Registration</h1>
+                                        <h1>Money Booth</h1>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 hidden-xs" align="right">
@@ -292,70 +292,16 @@
 										
                                         
                                          <div class="form-group">
-                                            <label class="col-md-3 control-label">Gift</label>
-                                               <div class="col-md-6">
-                                                    <select id="Gift" name="Gift" class="Gift" size="3">
-                                                        <option value="Apple TV">Apple TV</option>
-                                                        <option value="Kindle Fire">Kindle Fire</option>
-                                                       
-                                                    </select>
-                                                </div>
-                                        
-                                        </div>
-                                        
-                                     <div class="form-group">
-                                            <label class="col-md-3 control-label">Delivery Method</label>
-                                            <div class="col-md-9">
-                                                <div class="radio">
-                                                    <label for="example-radio1">
-                                                        <input type="radio" id="pickup-radio" name="getgift" value="pickup" checked> Pickup
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="example-radio2">
-                                                        <input type="radio" id="deliver-radio" name="getgift" value="deliver"> Deliver
-                                                    </label>
-                                                </div>
-                                              
-                                            </div>
-                                        
-                                        </div>
-                                        
-                                        <div id="address-box">
-
-										<div class="form-group">
-                                            <label class="col-md-3 control-label" for="example-text-input">Delivery Address</label>
-                                            <div class="col-md-9">
-                                                <input type="text" id="DeliveryAddress" name="DeliveryAddress" class="form-control" placeholder="Delivery Address">
+                                            <label class="col-md-3 control-label" for="example-text-input">Amount</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="MoneyBoothAmount" name="MoneyBoothAmount" class="form-control" placeholder="MoneyBoothAmount">
                                                
                                             </div>
                                         </div>
                                         
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="example-text-input">Delivery City</label>
-                                            <div class="col-md-9">
-                                                <input type="text" id="DeliveryCity" name="DeliveryCity" class="form-control" placeholder="Delivery City">
-                                               
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="example-text-input">Delivery State</label>
-                                            <div class="col-md-9">
-                                                <input type="text" id="DeliveryState" name="DeliveryState" class="form-control" placeholder="DeliveryState">
-                                               
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="example-text-input">Delivery Zip</label>
-                                            <div class="col-md-9">
-                                                <input type="text" id="DeliveryZip" name="DeliveryZip" class="form-control" placeholder="DeliveryZip">
-                                               
-                                          </div>
+                                   
                                         
                                         
-                                        </div>
-                                        
-                                        </div>
                                         
                                         <div id="signature-box">
                                         
@@ -415,7 +361,7 @@
 		
 		$(document).ready(function() {
 			
-			var sURL = "http://apps.smidirectmarketing.com/kioskregister/NADAMeetingDetails.aspx?ActivityID="+getUrlParameter('ActivityID');
+			var sURL = "http://apps.smidirectmarketing.com/kioskregister/NADAMoneyBoothDetails.aspx?BadgeID="+getUrlParameter('BadgeID');
 			//alert(sURL);
 			$.getJSON( sURL, function( data ) {
 				$( "#firstname" ).val(data.FirstName);
@@ -427,17 +373,8 @@
 
 				$( "#badgeID" ).val(data.BadgeID);
 				$( "#dealercode" ).val(data.DealerCode);
-				$( "#DeliveryAddress" ).val(data.ShippingAddress);
-				$( "#DeliveryCity" ).val(data.ShippingCity);
-				$( "#DeliveryState" ).val(data.ShippingState);
-				$( "#DeliveryZip" ).val(data.ShippingZip);
-				
-				$( "#notes" ).val(data.Notes);
-				
-				$( "#Gift" ).val(data.Gift);
-				
-				if (data.DeliveryMethod == "pickup") {$('#pickup-radio').prop("checked",true);$('#deliver-radio').prop("checked",false);}
-				if (data.DeliveryMethod == "delivery") {$('#deliver-radio').prop("checked",true);$('#pickup-radio').prop("checked",false);}
+			
+				$( "#MoneyBoothAmount" ).val(data.MoneyBoothAmount);
 				  
 				 
 				 var $sigdiv = $("#signature");
@@ -461,19 +398,7 @@
 			
 			
 			
-			 if($('#pickup-radio').is(':checked')) { showPickup(); }
 			
-			
-		      if($('#deliver-radio').is(':checked')) {  showDelivery(); }
-			
-			
-			$('#pickup-radio').click(function() {
-			   if($('#pickup-radio').is(':checked')) { showPickup(); }
-			});
-			
-			$('#deliver-radio').click(function() {
-			   if($('#deliver-radio').is(':checked')) {  showDelivery(); }
-			});
 			
 			// 
 			$('#saveMeeting').click(function() {
@@ -516,10 +441,10 @@
 				  
 				  
 				  
-				    var sJSON = "sBadgeID|==|" + $("#badgeID").val() + "|^^|sFirstName|==|" + $("#firstname").val() + "|^^|sLastName|==|" + $("#lastname").val() + "|^^|sCompany|==|" + $("#company").val() + "|^^|sEmailAddress|==|" + $("#email").val() + "|^^|sDealerCode|==|" + $("#dealercode").val() + "|^^|sPhone|==|" + $("#phone").val() + "|^^|sSalesRep|==|" + $("#SalesRep").val() + "|^^|iActivityID|==|" + getUrlParameter("ActivityID") + "|^^|sSignature|==|" + $sigdiv.jSignature("getData","base30") + "|^^|sShippingAddress|==|" + $("#DeliveryAddress").val() + "|^^|sShippingCity|==|" + $("#DeliveryCity").val() + "|^^|sShippingState|==|" + $("#DeliveryState").val() + "|^^|sShippingZip|==|" + $("#DeliveryZip").val() + "|^^|sNotes|==|" + $("#notes").val()  + "|^^|sGift|==|" + $("#Gift").val()  + "|^^|sDeliveryMethod|==|" + sDeliveryMethod  + "|^^|sCompleted|==|" + "sCompleted" + "";
+				    var sJSON = "sBadgeID|==|" + $("#badgeID").val() + "|^^|sFirstName|==|" + $("#firstname").val() + "|^^|sLastName|==|" + $("#lastname").val() + "|^^|sCompany|==|" + $("#company").val() + "|^^|sEmailAddress|==|" + $("#email").val() + "|^^|sDealerCode|==|" + $("#dealercode").val() + "|^^|sPhone|==|" + $("#phone").val() + "|^^|sSalesRep|==|" + $("#SalesRep").val() + "|^^|iActivityID|==|" + getUrlParameter("ActivityID") + "|^^|sSignature|==|" + $sigdiv.jSignature("getData","base30") + "|^^|sShippingAddress|==|" + $("#DeliveryAddress").val() + "|^^|sShippingCity|==|" + $("#DeliveryCity").val() + "|^^|sShippingState|==|" + $("#DeliveryState").val() + "|^^|sShippingZip|==|" + $("#DeliveryZip").val() + "|^^|sNotes|==|" + $("#notes").val()  + "|^^|sGift|==|" + $("#Gift").val()  + "|^^|sDeliveryMethod|==|" + sDeliveryMethod  + "|^^|sCompleted|==|" + "sCompleted" + "|^^|sMoneyBoothAmount|==|" + $("#MoneyBoothAmount").val()  + "";
 				  
-
-				$.post( "http://apps.smidirectmarketing.com/kioskregister/NADAMeetingUpdate.aspx",sJSON, function( data ) {
+//sMoneyBoothAmount
+				$.post( "http://localhost:25656/NADAMoneyBoothUpdate.aspx",sJSON, function( data ) {
 					
 							$.bootstrapGrowl('<h4><strong>Save</strong></h4> <p>Successfull</p>', {
 							type: 'success',

@@ -82,9 +82,22 @@ var app = {
 
 function parseURL(sURL) {
 	
-	var aResults = sURL.split("/"); 
-	document.getElementById('badgeID').value = aResults[4];
-	document.getElementById('lastname').value = aResults[5];
-	document.getElementById('firstname').value = aResults[6];
-	document.getElementById('company').value = aResults[7];	
+sURL = "http://apps.smidirectmarketing.com/kioskregister/kioskleadparse.aspx?QRCode=" + encodeURIComponent(sURL);
+	
+	$.getJSON( sURL, function( data ) {
+		
+				$( "#firstname" ).val(data.FirstName);
+				$( "#lastname" ).val(data.LastName);
+				$( "#company" ).val(data.Company);
+				$( "#email" ).val(data.Email);
+				$( "#phone" ).val(data.Phone);
+				$( "#SalesRep" ).val(data.SalesRep);
+
+				$( "#badgeID" ).val(data.BadgeID);
+				$( "#dealercode" ).val(data.DealerCode);
+
+				$( "#notes" ).val(data.Notes);
+									  
+	}
+	);
 }
