@@ -107,7 +107,7 @@ function parseURL(sURL) {
 			
 			
         }, function (error) { 
-            console.log("Scanning failed: ", error); 
+           alert("Scanning failed: " + error); 
         } );
 	
 	
