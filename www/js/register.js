@@ -88,7 +88,7 @@ function parseURL(sURL) {
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.scan( function (result) { 
-
+			alert(sURL);
             sURL = "http://apps.smidirectmarketing.com/kioskregister/kioskleadparse.aspx?QRCode=" + encodeURIComponent(result);
 	
 				$.getJSON( sURL, function( data ) {
