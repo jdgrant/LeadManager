@@ -444,7 +444,7 @@
 				    var sJSON = "sBadgeID|==|" + $("#badgeID").val() + "|^^|sFirstName|==|" + $("#firstname").val() + "|^^|sLastName|==|" + $("#lastname").val() + "|^^|sCompany|==|" + $("#company").val() + "|^^|sEmailAddress|==|" + $("#email").val() + "|^^|sDealerCode|==|" + $("#dealercode").val() + "|^^|sPhone|==|" + $("#phone").val() + "|^^|sSalesRep|==|" + $("#SalesRep").val() + "|^^|iActivityID|==|" + getUrlParameter("ActivityID") + "|^^|sSignature|==|" + $sigdiv.jSignature("getData","base30") + "|^^|sShippingAddress|==|" + $("#DeliveryAddress").val() + "|^^|sShippingCity|==|" + $("#DeliveryCity").val() + "|^^|sShippingState|==|" + $("#DeliveryState").val() + "|^^|sShippingZip|==|" + $("#DeliveryZip").val() + "|^^|sNotes|==|" + $("#notes").val()  + "|^^|sGift|==|" + $("#Gift").val()  + "|^^|sDeliveryMethod|==|" + sDeliveryMethod  + "|^^|sCompleted|==|" + "sCompleted" + "|^^|sMoneyBoothAmount|==|" + $("#MoneyBoothAmount").val()  + "";
 				  
 //sMoneyBoothAmount
-				$.post( "http://localhost:25656/NADAMoneyBoothUpdate.aspx",sJSON, function( data ) {
+				$.post( "http://apps.smidirectmarketing.com/kioskregister/NADAMoneyBoothUpdate.aspx",sJSON, function( data ) {
 					
 							$.bootstrapGrowl('<h4><strong>Save</strong></h4> <p>Successfull</p>', {
 							type: 'success',

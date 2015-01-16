@@ -82,21 +82,37 @@ var app = {
 
 function parseURL(sURL) {
 	
-sURL = "http://apps.smidirectmarketing.com/kioskregister/kioskleadparse.aspx?QRCode=" + encodeURIComponent(sURL);
 	
-	$.getJSON( sURL, function( data ) {
-		
-				$( "#firstname" ).val(data.FirstName);
-				$( "#lastname" ).val(data.LastName);
-				$( "#company" ).val(data.Company);
-				$( "#email" ).val(data.Email);
-				$( "#phone" ).val(data.Phone);
-				$( "#SalesRep" ).val(data.SalesRep);
+	
+	  
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-				$( "#badgeID" ).val(data.BadgeID);
-				$( "#dealercode" ).val(data.DealerCode);
+        scanner.scan( function (result) { 
 
-				$( "#notes" ).val(data.Notes);
+            sURL = "http://apps.smidirectmarketing.com/kioskregister/kioskleadparse.aspx?QRCode=" + encodeURIComponent(result);
+	
+				$.getJSON( sURL, function( data ) {
+					
+							$( "#firstname" ).val(data.FirstName);
+							$( "#lastname" ).val(data.LastName);
+							$( "#company" ).val(data.Company);
+							$( "#email" ).val(data.Email);
+							$( "#phone" ).val(data.Phone);
+							$( "#SalesRep" ).val(data.SalesRep);
+			
+							$( "#badgeID" ).val(data.BadgeID);
+							$( "#dealercode" ).val(data.DealerCode);
+			
+							$( "#notes" ).val(data.Notes);
+			
+			
+        }, function (error) { 
+            console.log("Scanning failed: ", error); 
+        } );
+	
+	
+	
+
 									  
 	}
 	);
