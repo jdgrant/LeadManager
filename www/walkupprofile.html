@@ -224,7 +224,7 @@
                                          <div class="form-group">
                                             <label class="col-md-3 control-label" for="example-text-input">Last Name</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Last Name">
+                                                <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Last Name"> <a href="javascript:lookupBadge();">Look up</a>
                                                
                                             </div>
                                         </div>
@@ -259,7 +259,10 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="example-text-input">SalesRep</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="SalesRep" name="SalesRep" class="form-control" placeholder="SalesRep">
+                                                <select id="SalesRep" name="SalesRep" class="SalesRep" size="3">
+                                                      
+                                                       
+                                                    </select>
                                                
                                             </div>
                                         </div>
@@ -310,7 +313,7 @@
 							</div>
                             </div>
 
-
+<script src="js/salesreps.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="barcodescanner.js"></script>
         <script type="text/javascript" src="js/register.js"></script>
@@ -322,10 +325,10 @@
 		
 		$(document).ready(function() {
 			
-			var sURL = "http://apps.smidirectmarketing.com/kioskregister/NADAWalkUpDetails.aspx?BadgeID="+getUrlParameter('BadgeID');
-			//alert(sURL);
-			$.getJSON( sURL, function( data ) {
+			var sURL = "http://apps.smidirectmarketing.com/kioskregister/NADAWalkUpDetails.aspx?uid="+getUrlParameter('uid');
 			
+			$.getJSON( sURL, function( data ) {
+				
 		
 				$( "#firstname" ).val(data.FirstName);
 				$( "#lastname" ).val(data.LastName);
@@ -409,7 +412,7 @@
 			
 				  
 				  
-				    var sJSON = "sBadgeID|==|" + $("#badgeID").val() + "|^^|sFirstName|==|" + $("#firstname").val() + "|^^|sLastName|==|" + $("#lastname").val() + "|^^|sCompany|==|" + $("#company").val() + "|^^|sEmailAddress|==|" + $("#email").val() + "|^^|sDealerCode|==|" + $("#dealercode").val() + "|^^|sPhone|==|" + $("#phone").val() + "|^^|sSalesRep|==|" + $("#SalesRep").val()  + "|^^|sNotes|==|" + $("#notes").val() ;
+				    var sJSON = "sBadgeID|==|" + $("#badgeID").val() + "|^^|sFirstName|==|" + $("#firstname").val() + "|^^|sLastName|==|" + $("#lastname").val() + "|^^|sCompany|==|" + $("#company").val() + "|^^|sEmailAddress|==|" + $("#email").val() + "|^^|sDealerCode|==|" + $("#dealercode").val() + "|^^|sPhone|==|" + $("#phone").val() + "|^^|sSalesRep|==|" + $("#SalesRep").val()  + "|^^|sNotes|==|" + $("#notes").val() + "|^^|sUID|==|" + getUrlParameter('uid');;
 					
 
 				$.post( "http://apps.smidirectmarketing.com/kioskregister/NADAWalkUpUpdate.aspx",sJSON, function( data ) {

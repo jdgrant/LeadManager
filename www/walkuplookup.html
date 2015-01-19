@@ -272,7 +272,7 @@ function monitorClick() {
 		   
 		    var id = $(this).children("td:eq(0)").text();
            
-		   	window.location.href = 'walkupprofile.html?BadgeID='+id;
+		   	window.location.href = 'walkupprofile.html?uid='+id;
             
             //alert("ID: "+id);
   
@@ -281,7 +281,7 @@ function monitorClick() {
 		}     
 		
 		$('#newScan').click(function() {
-			  window.location = 'walkupprofile.html';
+			  window.location = 'walkupprofile.html?uid='+Math.floor(Date.now() / 1000);
 			});
 		
 		   

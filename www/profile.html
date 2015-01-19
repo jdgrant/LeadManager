@@ -259,7 +259,13 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="example-text-input">SalesRep</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="SalesRep" name="SalesRep" class="form-control" placeholder="SalesRep">
+                                                <!--input type="text" id="SalesRep" name="SalesRep" class="form-control" placeholder="SalesRep"-->
+                                                 
+                                                    <select id="SalesRep" name="SalesRep" class="SalesRep" size="3">
+                                                      
+                                                       
+                                                    </select>
+                                                
                                                
                                             </div>
                                         </div>
@@ -302,6 +308,15 @@
                                                 </div>
                                         
                                         </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="example-text-input">Inventory</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="Inventory" name="Inventory" class="form-control" placeholder="Inventory No">
+                                               
+                                            </div>
+                                        </div>
+                                        
                                         
                                      <div class="form-group">
                                             <label class="col-md-3 control-label">Delivery Method</label>
@@ -359,6 +374,13 @@
                                         
                                         <div id="signature-box">
                                         
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
                                           <div class="form-group">
                                             <label class="col-md-3 control-label">Signature</label>
                                         
@@ -403,7 +425,7 @@
 							</div>
                             </div>
 
-
+<script src="js/salesreps.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="barcodescanner.js"></script>
         <script type="text/javascript" src="js/register.js"></script>
@@ -431,10 +453,12 @@
 				$( "#DeliveryCity" ).val(data.ShippingCity);
 				$( "#DeliveryState" ).val(data.ShippingState);
 				$( "#DeliveryZip" ).val(data.ShippingZip);
+				$( "#Inventory" ).val(data.Inventory);
 				
 				$( "#notes" ).val(data.Notes);
 				
 				$( "#Gift" ).val(data.Gift);
+				
 				
 				if (data.DeliveryMethod == "pickup") {$('#pickup-radio').prop("checked",true);$('#deliver-radio').prop("checked",false);}
 				if (data.DeliveryMethod == "delivery") {$('#deliver-radio').prop("checked",true);$('#pickup-radio').prop("checked",false);}
@@ -516,7 +540,7 @@
 				  
 				  
 				  
-				    var sJSON = "sBadgeID|==|" + $("#badgeID").val() + "|^^|sFirstName|==|" + $("#firstname").val() + "|^^|sLastName|==|" + $("#lastname").val() + "|^^|sCompany|==|" + $("#company").val() + "|^^|sEmailAddress|==|" + $("#email").val() + "|^^|sDealerCode|==|" + $("#dealercode").val() + "|^^|sPhone|==|" + $("#phone").val() + "|^^|sSalesRep|==|" + $("#SalesRep").val() + "|^^|iActivityID|==|" + getUrlParameter("ActivityID") + "|^^|sSignature|==|" + $sigdiv.jSignature("getData","base30") + "|^^|sShippingAddress|==|" + $("#DeliveryAddress").val() + "|^^|sShippingCity|==|" + $("#DeliveryCity").val() + "|^^|sShippingState|==|" + $("#DeliveryState").val() + "|^^|sShippingZip|==|" + $("#DeliveryZip").val() + "|^^|sNotes|==|" + $("#notes").val()  + "|^^|sGift|==|" + $("#Gift").val()  + "|^^|sDeliveryMethod|==|" + sDeliveryMethod  + "|^^|sCompleted|==|" + "sCompleted" + "";
+				    var sJSON = "sBadgeID|==|" + $("#badgeID").val() + "|^^|sFirstName|==|" + $("#firstname").val() + "|^^|sLastName|==|" + $("#lastname").val() + "|^^|sCompany|==|" + $("#company").val() + "|^^|sEmailAddress|==|" + $("#email").val() + "|^^|sDealerCode|==|" + $("#dealercode").val() + "|^^|sPhone|==|" + $("#phone").val() + "|^^|sSalesRep|==|" + $("#SalesRep").val() + "|^^|iActivityID|==|" + getUrlParameter("ActivityID") + "|^^|sSignature|==|" + $sigdiv.jSignature("getData","base30") + "|^^|sShippingAddress|==|" + $("#DeliveryAddress").val() + "|^^|sShippingCity|==|" + $("#DeliveryCity").val() + "|^^|sShippingState|==|" + $("#DeliveryState").val() + "|^^|sShippingZip|==|" + $("#DeliveryZip").val() + "|^^|sNotes|==|" + $("#notes").val()  + "|^^|sGift|==|" + $("#Gift").val()  + "|^^|sDeliveryMethod|==|" + sDeliveryMethod  + "|^^|sCompleted|==|" + "sCompleted" + "|^^|sInventory|==|" + $("#Inventory").val() + "";
 				  
 
 				$.post( "http://apps.smidirectmarketing.com/kioskregister/NADAMeetingUpdate.aspx",sJSON, function( data ) {

@@ -259,8 +259,10 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="example-text-input">SalesRep</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="SalesRep" name="SalesRep" class="form-control" placeholder="SalesRep">
-                                               
+                                                <select id="SalesRep" name="SalesRep" class="SalesRep" size="3">
+                                                      
+                                                       
+                                                    </select>
                                             </div>
                                         </div>
                                         
@@ -349,7 +351,7 @@
 							</div>
                             </div>
 
-
+<script src="js/salesreps.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="barcodescanner.js"></script>
         <script type="text/javascript" src="js/register.js"></script>
@@ -361,7 +363,7 @@
 		
 		$(document).ready(function() {
 			
-			var sURL = "http://apps.smidirectmarketing.com/kioskregister/NADAMoneyBoothDetails.aspx?BadgeID="+getUrlParameter('BadgeID');
+			var sURL = "http://apps.smidirectmarketing.com/kioskregister/NADAMoneyBoothDetails.aspx?uid="+getUrlParameter('uid');
 			//alert(sURL);
 			$.getJSON( sURL, function( data ) {
 				$( "#firstname" ).val(data.FirstName);
@@ -441,7 +443,7 @@
 				  
 				  
 				  
-				    var sJSON = "sBadgeID|==|" + $("#badgeID").val() + "|^^|sFirstName|==|" + $("#firstname").val() + "|^^|sLastName|==|" + $("#lastname").val() + "|^^|sCompany|==|" + $("#company").val() + "|^^|sEmailAddress|==|" + $("#email").val() + "|^^|sDealerCode|==|" + $("#dealercode").val() + "|^^|sPhone|==|" + $("#phone").val() + "|^^|sSalesRep|==|" + $("#SalesRep").val() + "|^^|iActivityID|==|" + getUrlParameter("ActivityID") + "|^^|sSignature|==|" + $sigdiv.jSignature("getData","base30") + "|^^|sShippingAddress|==|" + $("#DeliveryAddress").val() + "|^^|sShippingCity|==|" + $("#DeliveryCity").val() + "|^^|sShippingState|==|" + $("#DeliveryState").val() + "|^^|sShippingZip|==|" + $("#DeliveryZip").val() + "|^^|sNotes|==|" + $("#notes").val()  + "|^^|sGift|==|" + $("#Gift").val()  + "|^^|sDeliveryMethod|==|" + sDeliveryMethod  + "|^^|sCompleted|==|" + "sCompleted" + "|^^|sMoneyBoothAmount|==|" + $("#MoneyBoothAmount").val()  + "";
+				    var sJSON = "sBadgeID|==|" + $("#badgeID").val() + "|^^|sFirstName|==|" + $("#firstname").val() + "|^^|sLastName|==|" + $("#lastname").val() + "|^^|sCompany|==|" + $("#company").val() + "|^^|sEmailAddress|==|" + $("#email").val() + "|^^|sDealerCode|==|" + $("#dealercode").val() + "|^^|sPhone|==|" + $("#phone").val() + "|^^|sSalesRep|==|" + $("#SalesRep").val() + "|^^|iActivityID|==|" + getUrlParameter("ActivityID") + "|^^|sSignature|==|" + $sigdiv.jSignature("getData","base30") + "|^^|sShippingAddress|==|" + $("#DeliveryAddress").val() + "|^^|sShippingCity|==|" + $("#DeliveryCity").val() + "|^^|sShippingState|==|" + $("#DeliveryState").val() + "|^^|sShippingZip|==|" + $("#DeliveryZip").val() + "|^^|sNotes|==|" + $("#notes").val()  + "|^^|sGift|==|" + $("#Gift").val()  + "|^^|sDeliveryMethod|==|" + sDeliveryMethod  + "|^^|sCompleted|==|" + "sCompleted" + "|^^|sMoneyBoothAmount|==|" + $("#MoneyBoothAmount").val() + "|^^|sUID|==|" + getUrlParameter('uid') + "";
 				  
 //sMoneyBoothAmount
 				$.post( "http://apps.smidirectmarketing.com/kioskregister/NADAMoneyBoothUpdate.aspx",sJSON, function( data ) {

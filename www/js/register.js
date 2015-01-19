@@ -118,3 +118,35 @@ function parseURL(sURL) {
 	}
 	);
 }
+
+
+function lookupBadge() {
+	
+	if ($("#badgeID").val()=="" || $("#lastname").val()=="") {
+		alert("Please enter Badge Number and first initial of Last Name");
+		return;
+	}
+	
+	
+	 sURL = "http://apps.smidirectmarketing.com/kioskregister/kioskleadparse.aspx?BadgeID=" + $("#badgeID").val() + "&LastName=" + $("#lastname").val();
+	
+				$.getJSON( sURL, function( data ) {
+					
+							$( "#firstname" ).val(data.FirstName);
+							$( "#lastname" ).val(data.LastName);
+							$( "#company" ).val(data.Company);
+							$( "#email" ).val(data.Email);
+							$( "#phone" ).val(data.Phone);
+							$( "#SalesRep" ).val(data.SalesRep);
+			
+							$( "#badgeID" ).val(data.BadgeID);
+							$( "#dealercode" ).val(data.DealerCode);
+			
+							$( "#notes" ).val(data.Notes);
+			
+			
+        }, function (error) { 
+           alert("Scanning failed: " + error); 
+        } );
+	
+}
